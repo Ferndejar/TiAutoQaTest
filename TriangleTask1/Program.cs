@@ -29,7 +29,7 @@ namespace TriangleTask1
 
         static string isEquilateral(double a, double b, double c)
         {
-            if (a == b && b == c)
+            if (a == b && b == c && a == c)
             {
                 return "Triangle IS 'Equilateral' ";
             }
@@ -55,7 +55,10 @@ namespace TriangleTask1
 
         static string isRight(double a, double b, double c)
         {
-            if (b*b - (a*a+c*c)<=0.0001)
+            double delta = 0.0001;
+            if (Math.Abs(Math.Pow(b,2)-(Math.Pow(a,2)+Math.Pow(c,2))) <= delta ||
+                Math.Abs(Math.Pow(c,2)-(Math.Pow(b,2)+Math.Pow(a,2))) <= delta || 
+                Math.Abs(Math.Pow(a,2)-(Math.Pow(b,2)+Math.Pow(c,2))) <= delta)
             {
                 return "Triangle IS 'Right'";
             }
@@ -120,12 +123,6 @@ namespace TriangleTask1
             {
                 Console.WriteLine(i);
             }
-
-
-
-            //
-            //
-            //Console.WriteLine("Coordinate X {0} Coordinate Y {1}", aX,aY);
 
             Console.ReadKey();
 
